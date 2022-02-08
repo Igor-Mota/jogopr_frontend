@@ -24,14 +24,12 @@ const references = {
     many_values(){
         const elements = this.many_values_intern(arguments)
         var obj = {}
-
         elements.forEach(element => {
-           console.log(element.getAttribute('name'))
+ 
             obj = {
                 ...obj,
                 [element.getAttribute('name')]:element.value
             }
-
         })
         return obj
 

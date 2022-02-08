@@ -38,19 +38,21 @@
                                     ser abordado:</p>
                                 <label class="label-input">
                                     <input id="assunto" type="text"
+                                        name="subject"
                                         placeholder="Assunto" required>
                                 </label>
                                 <small id="erro-assunto" class="vermelho"></small>
                                 <p class="descricao">Informe sua disciplina:</p>
                                 <label class="label-input">
                                     <input id="disciplina" type="text"
+                                        name="matter"
                                         placeholder="Disciplina" required>
                                 </label>
                                 <small id="erro-disciplina" class="vermelho"></small>
                                 <p class="descricao">Selecione a serie da turma:</p>
                                 <label class="label-input">
                                     <select id="turma" class=""
-                                        name="label-input">
+                                        name="series">
                                         <option selected disabled value="">Selecione</option>
                                         <option value="8-ano">8º Ano</option>
                                         <option value="9-ano">9º Ano</option>
@@ -65,7 +67,7 @@
                                 <p class="descricao">Quantidade de grupos: </p>
                                 <label class="label-input">
                                     <select id="qtdegrupos" class=""
-                                        name="grupos">
+                                        name="qtds_groups">
                                         <option value="1">2</option>
                                     </select>
                                 </label>
@@ -73,7 +75,8 @@
                                 <p class="descricao">Mostrar autor das
                                     perguntas?</p>
                                 <label class="label-input">
-                                    <select id="autor" class="" name="grupos">
+                                    <select id="autor" class=""
+                                        name="show_author">
                                         <option selected disabled value="">Selecione</option>
                                         <option value="1">Sim</option>
                                         <option value="2">Não</option>
@@ -84,14 +87,14 @@
                                     individual?</p>
                                 <label class="label-input">
                                     <select id="pontuacao" class=""
-                                        name="grupos">
+                                        name="punctuation_type">
                                         <option selected disabled value="">Selecione</option>
                                         <option value="3">Grupo</option>
                                         <option value="4">Individual</option>
                                     </select>
                                 </label>
                                 <small id="erro-pontuacao" class="vermelho"></small>
-                                <button onclick="validarcriaratividade()"
+                                <button
                                     type="button" id="criar-atividade"
                                     class="btn btn-criar-atividade">Criar
                                     Atividade</button>
@@ -190,14 +193,8 @@
                 </div>
             </div>
         </div>
-        <script src="./JS/criaratividade.js"></script>
-        <script>
-            async function verify() {
-                var token = await localStorage.getItem(token)
-                if(!token){
-                    window.location.href = 'http://127.0.0.1:5500/index.html'   
-                }
-            }
-        </script>
+        <!-- <script src="./JS/criaratividade.js"></script> -->
+        <script src="../public/js/menu.js" type="module"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </body>
 </html>

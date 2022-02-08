@@ -10,9 +10,7 @@ const router = {
       if(argument === 'index.html'){
         window.location.href =  this.location().replace(this.location(), argument)
       }else{
-        
         window.location.href = window.location.href.replace(/(.+\d+:\d+\/).+/,`$1/src/views/${argument}`)
-  
       }
     }
 }
