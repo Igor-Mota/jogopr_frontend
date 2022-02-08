@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+            integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../public/css/style2.css">
+    </head>
+    <body>
+        <nav class="menu-prof">
+            <ul>
+                <h1 class="h1-logo">Jogo Passa ou Repassa Web</h1>
+                <li>
+                    <a href="">Seja Bem Vindo(a)!</a>
+                </li>
+                <a href="index.html">
+                    <button id="sair" class="btn btn-sair-principal">Sair</button>
+                </a>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="content">
+                <div class="primeira-colun">
+                    <div class="criar-atividades">
+                        <h1 class="titulo">Crie Atividades Aqui!</h1>
+                        <p class="descricao">Aqui você pode criar suas
+                            atividades</p>
+                        <p class="descricao criar-atividade">para sua aula!</p>
+                        <div class="criar-atividade-form">
+                            <form action="atividade1.html" method=""
+                                class="form">
+                                <p class="descricao desc1">Informe o assunto a
+                                    ser abordado:</p>
+                                <label class="label-input">
+                                    <input id="assunto" type="text"
+                                        placeholder="Assunto" required>
+                                </label>
+                                <small id="erro-assunto" class="vermelho"></small>
+                                <p class="descricao">Informe sua disciplina:</p>
+                                <label class="label-input">
+                                    <input id="disciplina" type="text"
+                                        placeholder="Disciplina" required>
+                                </label>
+                                <small id="erro-disciplina" class="vermelho"></small>
+                                <p class="descricao">Selecione a serie da turma:</p>
+                                <label class="label-input">
+                                    <select id="turma" class=""
+                                        name="label-input">
+                                        <option selected disabled value="">Selecione</option>
+                                        <option value="8-ano">8º Ano</option>
+                                        <option value="9-ano">9º Ano</option>
+                                        <option value="1-ano-A">1º Ano A</option>
+                                        <option value="1-ano-B">1º Ano B</option>
+                                        <option value="2-ano">2º Ano</option>
+                                        <option value="3-ano">3º Ano</option>
+                                        <option value="4-ano">4º Ano</option>
+                                    </select>
+                                </label>
+                                <small id="erro-turma" class="vermelho"></small>
+                                <p class="descricao">Quantidade de grupos: </p>
+                                <label class="label-input">
+                                    <select id="qtdegrupos" class=""
+                                        name="grupos">
+                                        <option value="1">2</option>
+                                    </select>
+                                </label>
+                                <small id="erro-qtdegrupos" class="vermelho"></small>
+                                <p class="descricao">Mostrar autor das
+                                    perguntas?</p>
+                                <label class="label-input">
+                                    <select id="autor" class="" name="grupos">
+                                        <option selected disabled value="">Selecione</option>
+                                        <option value="1">Sim</option>
+                                        <option value="2">Não</option>
+                                    </select>
+                                </label>
+                                <small id="erro-autor" class="vermelho"></small>
+                                <p class="descricao">Pontuação por grupo ou
+                                    individual?</p>
+                                <label class="label-input">
+                                    <select id="pontuacao" class=""
+                                        name="grupos">
+                                        <option selected disabled value="">Selecione</option>
+                                        <option value="3">Grupo</option>
+                                        <option value="4">Individual</option>
+                                    </select>
+                                </label>
+                                <small id="erro-pontuacao" class="vermelho"></small>
+                                <button onclick="validarcriaratividade()"
+                                    type="button" id="criar-atividade"
+                                    class="btn btn-criar-atividade">Criar
+                                    Atividade</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="segunda-colun">
+                    <div class="regras-jogo">
+                        <h1 class="titulo">Regras do Jogo</h1>
+                        <p class="descricao">Aqui é infomado as regras</p>
+                        <p class="descricao margin-descricao-regras">do jogo e
+                            como funciona:</p>
+                        <p class="texto-regras"><em>1.</em> Todos os alunos
+                            devem estar em um computador ou celular
+                            individualmente para participar.</p>
+                        <p class="texto-regras"><em>2.</em> O professor deve
+                            criar a atividade com suas configurações para mandar
+                            o código da atividade para os alunos.</p>
+                        <p class="texto-regras"><em>3.</em> O professor deve
+                            analisar as perguntas feitas pelos os alunos para
+                            colocar na atividade.</p>
+                        <p class="texto-regras"><em>4.</em> O aluno pode fazer
+                            no máximo 3 perguntas com 3 respostas onde 1 é
+                            verdadeira e 2 falsas.</p>
+                        <p class="texto-regras"><em>5.</em> Os alunos devem
+                            estar em grupos separados para que não aconteça
+                            trapaça.</p>
+                        <p class="texto-regras"><em>6.</em> Pensar em mais
+                            regras do jogo para ser aplicado...</p>
+                    </div>
+                </div>
+                <div class="quarta-colun">
+                    <div class="funcionalidades">
+                        <h1 class="titulo">Como funciona o jogo</h1>
+                        <p class="texto-regras"><em>1.</em> O professor ou
+                            usuário cadastrado deve criar a atividade de acordo
+                            com suas configurações.</p>
+                        <p class="texto-regras"><em>2.</em> Após criar a
+                            atividade será gerado um código aleatório de convite
+                            para os alunos entrarem com seu nome e serem aceitos</p>
+                        <p class="texto-regras"><em>3.</em> pós os alunos serem
+                            aceitos o professor deve colocar qual aluno vai para
+                            qual grupo feito.</p>
+                        <p class="texto-regras"><em>4.</em> Após os alunos
+                            estarem em seus grupos eles devem criar as questões
+                            do jogo onde 1 resposta será correta e 2 serão
+                            falsas, max 2 questões por aluno.</p>
+                        <p class="texto-regras"><em>5.</em> Após, o professor
+                            deve aceitar ou recusar as questões dos alunos para
+                            ser colocado no jogo.</p>
+                        <p class="texto-regras"><em>6.</em> O professor deve
+                            começar o jogo selecionando um grupo para começar, a
+                            ordem é aleatória do jogador para jogar e responder
+                            as questões.</p>
+                        <p class="texto-regras"><em>7.</em> O aluno tem 15
+                            segundos para responder às questões, caso o tempo
+                            passe ele tem a opção de ajuda do "Professor",
+                            "Grupo" e “Passar” de cada grupo.</p>
+                        <p class="texto-regras"><em>8.</em> Após as questões
+                            terminarem o jogo encerra mostrando os pontos e
+                            tendo um grupo vencedor.</p>
+                    </div>
+                </div>
+                <div class="terceira-colun">
+                    <div class="sua-conta">
+                        <!-- mostrar informações basicas da conta do professor -->
+                        <h1 class="titulo">Histórico</h1>
+                        <div class="desc3">
+                            <p class="descricao desc2">Nome:</p>
+                        </div>
+                        <div class="desc3">
+                            <p class="descricao desc2">E-mail:</p>
+                        </div>
+                        <div class="desc3">
+                            <p class="descricao desc2">Grupos:</p>
+                        </div>
+                        <div class="desc3 desc4">
+                            <p class="descricao desc2">Alunos:</p>
+                        </div>
+                        <div class="desc3 desc4">
+                            <p class="descricao desc2">Atividade:</p>
+                        </div>
+                        <div class="historico"></div>
+                    </div>
+                    <div class="creditos">
+                        <h1 class="titulo">Créditos</h1>
+                        <p class="descricao texto-creditos">Esse jogo foi
+                            desenvolvido por <em>Lucas Petry Chagas</em> aluno
+                            do 4º ano para o projeto final de curso
+                            do Instituto Federal do Paraná Campus Avançado
+                            Quedas do Iguaçu, o site foi orientado pelo
+                            professor técnico em informática
+                            <em>Vanderlei Borges da Silva.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./JS/criaratividade.js"></script>
+        <script>
+            async function verify() {
+                var token = await localStorage.getItem(token)
+                if(!token){
+                    window.location.href = 'http://127.0.0.1:5500/index.html'   
+                }
+            }
+        </script>
+    </body>
+</html>

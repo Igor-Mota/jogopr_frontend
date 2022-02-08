@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="menu-prof">
+        <ul>
+            <h1 class="h1-logo">Jogo Passa ou Repassa Web</h1>
+            <li>
+                <a href="">Aluno(a) | Disciplina</a>
+            </li>
+            <a href="index.html">
+                <button id="sair" class="btn btn-sair-principal">Sair</button>
+            </a>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="primeira-coluna">
+            <h1 class="desc3">Criar Questão</h1>
+            <p class="desc">Aqui você deve criar as questões conforme o assunto e a disciplina da aula </p>
+            <div class="label-text-tf">
+                <form action="atividade1.html" method="get" class="form">
+                    <h1 style="margin-top: 20px;">Título</h1>                     
+                        <label class="label-input">
+                            <textarea type="text" id="tituloquestao" rows="6" class="textarea" required></textarea>
+                        </label>
+                        <small style="color: red;" id="erro-tituloquestao" class="vermelho"></small>
+                        <p class="descricao desc2">Informe as respostas e selecione 1 correta: </p>
+                    <div class="flex">
+                        <label class="label-input label-resposta">
+                            <input type="text" id="resposta1" placeholder="Resposta 1" required>
+                        </label>  
+                    </div>                  
+                    <small style="color: red;" id="erro-resposta1" class="vermelho"></small>
+                    <div class="flex">
+                        <label class="label-input label-resposta">
+                            <input type="text" id="resposta2" placeholder="Resposta 2" required>
+                        </label>
+                    </div> 
+                    <small style="color: red;" id="erro-resposta2" class="vermelho"></small>
+                    <div class="flex">
+                        <label class="label-input label-resposta">
+                            <input type="text" id="resposta3" placeholder="Resposta 3" required>
+                        </label>
+                    </div>                   
+                    <small style="color: red;" id="erro-resposta3" class="vermelho"></small>
+                </form>
+                    <div class="wrapper">
+                        <div class="form-group">
+                            <input type="radio" class="radio" name="theradio" id="radio1">
+                            <label for="radio1"></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" class="radio" name="theradio" id="radio2">
+                            <label for="radio2"></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" class="radio" name="theradio" id="radio3">
+                            <label for="radio3"></label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-baixo">
+        <a href="atividade1.html">
+            <button class="btn-voltar-atividade">Voltar</button>
+        </a>
+        <button type="submit" onclick="validarquestao(criarquestao), chamar()" id="criarquestao" class="btn-salvar-questao">Salvar</button>
+    </div>
+    <h1 id="teste"></h1>
+    <h1 id="teste1"></h1>
+    <h1 id="teste2"></h1>
+    <h1 id="teste3"></h1>
+
+    <script src="./JS/criarquestao.js"></script>
+</div>
+</body>
+</html>

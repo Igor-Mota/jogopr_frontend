@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style5.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="menu-prof">
+        <ul>
+            <h1 class="h1-logo">Jogo Passa ou Repassa Web</h1>
+            <li>
+                <a href="">Aluno(a) | Disciplina</a>
+            </li>
+            <a href="index.html">
+                <button id="sair" class="btn btn-sair-principal">Sair</button>
+            </a>
+        </ul>
+    </nav>
+    <div class="container">
+            <div class="primeira-coluna">
+                <h1 class="titulo-p">Pontuação do Grupo <em> 1 </em></h1>
+                <div class="box-1">
+                    <div class="acertos-1">
+                        <h1 class="titulo-acerto">Acertos</h1>
+                        <div class="box-4">
+                            <span id="num-acertos" class="num-acertos">273</span>
+                        </div>
+                    </div>
+                    <div class="erros-1">
+                        <h1 class="titulo-erros">Erros </h1>
+                        <div class="box-4">
+                            <span id="num-acertos" class="num-erros">73</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pontuacao-equipe-2">
+                    <h1 class="titulo-p">Pontuação do Grupo <em> 2 </em></h1>
+                    <div class="box-1">
+                        <div class="acertos-2">
+                            <h1 class="titulo-acerto">Acertos</h1>
+                            <div class="box-4">
+                                <span id="num-acertos" class="num-acertos">73</span>
+                            </div>
+                        </div>
+                        <div class="erros-2">
+                            <h1 class="titulo-erros">Erros </h1>
+                            <div class="box-4">
+                                <span id="num-acertos" class="num-erros">73</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: grid;">
+                <h1 style="text-align: center; margin-bottom: 20px;">Grupo a jogar: <span> Grupo 1 </span></h1>
+                <div class="segunda-coluna-h">
+                    <div class="nome-aluno">
+                        <h1 style="text-align: center; margin-top: 10px;"><span>teste nome</span></h1>
+                    </div>
+                    <div class="cronometro">
+                        <h1 style="text-align: center; margin-top: 10px;"><span>15 sec</span></h1>
+                    </div>
+                    <div class="assunto">
+                        <h1 style="text-align: center; margin-top: 10px;"><span>teste assunto</span></h1>
+                    </div>
+                </div>
+                <h1 style="text-align: center; margin-top: 7px;" class="titulo-resposta">Título</h1>
+                <div class="terceira-coluna">
+                    <div class="titulo-questao">
+                        <h1 style="text-align: start; margin-top: 10px; margin-left: 20px;"><span>teste título</span></h1>
+                    </div>
+                </div>
+                <h1 style="text-align: center; margin-bottom: -10px;" class="titulo-resposta">Respostas</h1>
+                <div class="quarta-coluna">
+                    <div class="respostas">
+                        <h1 style="text-align: center; margin-top: 10px;"><span>teste resposta - 1</span></h1>
+                    </div>
+                    <div class="respostas">
+                        <h1 style="text-align: center; margin-top: 10px;"><span>teste resposta - 2</span></h1>
+                    </div>
+                    <div class="respostas">
+                        <h1 style="text-align: center; margin-top: 10px;"><span>teste resposta - 3</span></h1>
+                    </div>
+                </div>
+                <div class="ajuda-passar">
+                <a href="ajuda.html">
+                    <button class=" btn btn-ajuda">Ajuda! </button>
+                </a>
+                    <button onkeydown="espaco()" class=" btn btn-responder">Responder <p style="margin-top: 5px; font-weight: normal;">(Espaço)</p> </button>
+                    <button class=" btn btn-passar">Passar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

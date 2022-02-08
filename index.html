@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>PFC Passa ou Repassa Educação Web</title>
+        <link rel="stylesheet" href="./src//public/css/style.css">
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+            integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="content first-content">
+                <div class="first-column">
+                    <h2 class="title title-primary title-logo">Jogo Passa ou
+                        Repassa Web</h2>
+                    <h2 class="title title-primary">Area do Professor!</h2>
+                    <p class="description description-primary">Por favor, entre
+                        aqui para criar novas</p>
+                    <p class="description description-primary">atividades para
+                        seus alunos</p>
+                    <button id="signin" class="btn btn-primary btn-entrar">Entrar</button>
+                </div>
+                <div class="second-column">
+                    <h1 class="title title-second">Entrar na Atividade</h1> <br>
+                    <p class="description description-second">Informe Seu Nome e
+                        Código a baixo</p>
+                    <p class="description description-second">Para Participar da
+                        Atividades!</p><br>
+                    <form action="" method="post" class="form">
+                        <p class="description description-second">Informe Seu
+                            Nome Completo:</p>
+                        <label class="label-input" for="">
+                            <i class="far fa-user icon-modify"></i>
+                            <input type="text" id="nome-aluno"
+                                placeholder="Nome">
+                        </label>
+                        <small id="erro-nome-aluno" class="vermelho"></small>
+                        <p class="description description-second">Informe o
+                            Código Para Entrar:</p>
+                        <label class="label-input" for="">
+                            <i class="fas fa-lock icon-modify"></i>
+                            <input type="text" id="codigo-atividade"
+                                placeholder="Código">
+                        </label>
+                        <small id="erro-codigo-atividade" class="vermelho"></small>
+                        <button type="button" id="participar" class="btn
+                            btn-second btn-entrar-atividade">Participar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="content second-content">
+                <div class="first-column">
+                    <h2 class="title title-primary">Login!</h2><br>
+                    <p class="description description-primary">Se possui uma
+                        conta como professor</p>
+                    <p class="description description-primary">realize o login
+                        para entrar:</p><br>
+                    <form action="index2.html" method="post" class="form">
+                        <label class="label-input">
+                            <i class="far fa-envelope icon-modify"></i>
+                            <input id="email-login" type="email"
+                                placeholder="Email" name="email" value=""
+                                required
+                                autocomplete="on">
+                        </label>
+                        <small id="erro-email-login" class="branco"></small>
+                        <label class="label-input">
+                            <i class="fas fa-lock icon-modify"></i>
+                            <input id="senha-login" type="password"
+                                placeholder="senha" name="password"
+                                required
+                                autocomplete="off">
+                        </label>
+                        <small id="erro-senha-login" class="branco"></small>
+                        <a class="esquece-senha" href="esqueceSenha.html">Esqueceu
+                            sua Senha?</a> <br>
+                        <button id="login" type="button" class="btn btn-primary
+                            btn-login" onclick="validarlogin()">Login</button><br>
+                    </form>
+                    <button id="signup" class="btn btn-voltar-inicio">Voltar</button>
+                </div>
+                <div class="second-column">
+                    <h2 class="title title-second">Cadastrar como professor</h2>
+                    <div class="social-media">
+                        <ul class="list-social-media">
+                            <a class="link-social-media" href="#">
+                                <li class="item-social-media">
+                                    <i class="fab fa-facebook-f"></i>
+                                </li>
+                            </a>
+                            <a class="link-social-media"
+                                href="https://accounts.google.com/">
+                                <li class="item-social-media">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+                    <p class="description description-second">Ou crie sua conta
+                        por E-mail:</p>
+                    <form action="index2.html" method="POST" class="form">
+                        <label class="label-input">
+                            <i class="far fa-user icon-modify"></i>
+                            <input id="nome" name="name" type="text"
+                                placeholder="Nome Completo" value="">
+                        </label>
+                        <small id="erro-nome" class="vermelho"></small>
+                        <label class="label-input">
+                            <i class="far fa-envelope icon-modify"></i>
+                            <input id="email" type="email" placeholder="E-mail"
+                                name="email"
+                                value="">
+                        </label>
+                        <small class="vermelho" id="erro-email"></small>
+                        <label class="label-input">
+                            <i class="fas fa-lock icon-modify"></i>
+                            <input id="senha" type="password"
+                                name="password"
+                                placeholder="Senha"
+                                autocomplete="off">
+                        </label>
+                        <small id="erro-senha" class="vermelho"></small>
+                        <label class="label-input">
+                            <i class="fas fa-lock icon-modify"></i>
+                            <input id="confirmasenha" type="password"
+                                name="confirm_password"
+                                placeholder="Confirmar senha"
+                                autocomplete="off">
+                        </label>
+                        <small id="erro-confirma-senha" class="vermelho"></small>
+                        <div id="senhas-diferentes" hidden>
+                            <p class="description description-second">As senhas
+                                não correspondem, tente novamente!</p>
+                        </div>
+                        <button type="button" id="cadastro" class="btn
+                            btn-second btn-cadastrar">
+                            Cadastrar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./src/public/js/system.js"></script>
+        <script src="./src/public/js/index.js" type="module"></script>
+        <script>
+            </script>
+    </body>
+</html>
