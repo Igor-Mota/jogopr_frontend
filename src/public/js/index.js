@@ -9,6 +9,7 @@ const btn_for_fetch = references.one("#cadastro")
 const btn_for_login = references.one('#login')
 
 async function authenticate(inputs){
+
     const is_auth = await auth.register(inputs)
     if(is_auth.data.token){
         session.create_session(is_auth.data.token)
@@ -27,6 +28,16 @@ async function login(inputs){
         renderError(is_login.data)
     }
 }
+
+async function login_code(inputs){
+
+    const response = await auth.login_student(inputs)
+        if(response.data.activity){
+            router.push('criarQuestao.html')
+        }else{
+            renderError('Atividade nao encontrada')
+        }
+ }
 
 btn_for_fetch.addEventListener('click', () => {
 
@@ -47,8 +58,25 @@ btn_for_login.addEventListener('click', () => {
     const can_go = validate.inputs(inputs)
 
     if(can_go){
-    login(inputs)
+        login(inputs)
     }else{
         renderError('preencha todos os campos')
+    }
+})
+
+const btn__for_participate = references.one('#participar')
+
+btn__for_participate.addEventListener('click', () => {
+
+    const inputs = references.many_values('#nome_aluno', '#codigo_atividade')
+    const can_go = validate.inputs(inputs)
+    inputs.code = `'${inputs.code}'`
+    
+    if(can_go){
+        localStorage.setItem('name',inputs.name)
+        localStorage.setItem('code', inputs.code)        
+        login_code(inputs)
+    }else{
+        renderError('Preencha todos os campos')
     }
 })

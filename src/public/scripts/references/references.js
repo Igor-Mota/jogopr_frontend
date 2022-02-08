@@ -19,7 +19,6 @@ const references = {
                 elements.push(document.querySelector(elements_props[i]))
             }
             return elements
-        
     },
     many_values(){
         const elements = this.many_values_intern(arguments)

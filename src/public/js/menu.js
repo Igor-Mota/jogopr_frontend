@@ -9,6 +9,8 @@ import activityes from '../scripts/api/activityes.js'
     
     async function create_activity(data){
        const response = await activityes.create_activity(data)
+
+
         
     }
 
@@ -18,7 +20,6 @@ import activityes from '../scripts/api/activityes.js'
     }
 
     const btn_send = references.one('#criar-atividade')
-    
     
     btn_send.addEventListener('click', () => {
 
@@ -37,11 +38,5 @@ import activityes from '../scripts/api/activityes.js'
             renderError('Preencha todos os campos')
         }
     })
-    
-
-
-
-
-
 
 })();
