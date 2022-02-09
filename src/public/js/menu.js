@@ -1,17 +1,18 @@
 import session from "../scripts/auth/session.js";
-import router from "../scripts/router.js";
 import references from '../scripts/references/references.js'
 import validate from '../scripts/validate/validate.js'
 import renderError from '../scripts/renderError/danger.js'
 import activityes from '../scripts/api/activityes.js'
+import router from './router.js'
 
 (function(){
     
     async function create_activity(data){
        const response = await activityes.create_activity(data)
-
-
-        
+       console.log(response)
+        localStorage.setItem('code', response.data.code)
+        localStorage.setItem('activittye_id', response.data.id)
+        router.push('atividade1.html')        
     }
 
     const authorized  = session.veryfy_session()

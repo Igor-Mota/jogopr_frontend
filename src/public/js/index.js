@@ -1,7 +1,7 @@
 import auth from '../scripts/auth/sing_in.js'
 import references from '../scripts/references/references.js'
 import validate from '../scripts/validate/validate.js'
-import router from '../scripts/router.js'
+import router  from './router.js'
 import session from '../scripts/auth/session.js'
 import renderError from '../scripts/renderError/danger.js'
 
@@ -70,9 +70,8 @@ btn__for_participate.addEventListener('click', () => {
 
     const inputs = references.many_values('#nome_aluno', '#codigo_atividade')
     const can_go = validate.inputs(inputs)
-    inputs.code = `'${inputs.code}'`
-    
     if(can_go){
+        inputs.code = `'${inputs.code}'`
         localStorage.setItem('name',inputs.name)
         localStorage.setItem('code', inputs.code)        
         login_code(inputs)

@@ -1,7 +1,7 @@
 import refereces from '../scripts/references/references.js'
 import validate from '../scripts/validate/validate.js'
 import renderError from '../scripts/renderError/danger.js'
-import routes from '../scripts/router.js'
+import routes from '../js/router.js'
 (function(){
 
     async function create_question(data){
@@ -30,12 +30,13 @@ import routes from '../scripts/router.js'
 
     btn_create_question.addEventListener('click', function() {
         var inputs = refereces.many_values('#tituloquestao', '#resposta1', '#resposta2','#resposta3')
+        console.log(inputs)
         radio.forEach(el => {
             if (el.classList.contains('cheked')){
                 inputs.correct = parseInt(el.getAttribute('id').replace(/\D/g,''))
             }
         })
-        const can_go = validate.inputs(inputs)
+        const can_go = true
         if( can_go && inputs.correct){
             inputs.code = localStorage.getItem('code')
             create_question(inputs)
