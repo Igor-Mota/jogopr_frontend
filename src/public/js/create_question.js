@@ -2,6 +2,7 @@ import refereces from '../scripts/references/references.js'
 import validate from '../scripts/validate/validate.js'
 import renderError from '../scripts/renderError/danger.js'
 import routes from '../js/router.js'
+
 (function(){
 
     async function create_question(data){
@@ -9,13 +10,12 @@ import routes from '../js/router.js'
         const response = await axios.post('http://localhost:5000/questions/create',data)
 
         if(response.data.main){
-            routes.push('jogo.html')
+            routes.push('atividade1.html')
         }else{
             renderError('Algo deu errado')
+   
         }
     }
-
-
     
     var radio = document.querySelectorAll('.radio')
     radio.forEach(el => el.addEventListener('click', (e) => {
@@ -39,7 +39,10 @@ import routes from '../js/router.js'
         const can_go = true
         if( can_go && inputs.correct){
             inputs.code = localStorage.getItem('code')
+            inputs.activitye_id = localStorage.getItem('activitye_id')
+            inputs.author_name =  localStorage.getItem('name') ? localStorage.getItem('name') : 'sem nome' 
             create_question(inputs)
+        
         }else{
             renderError('Preencah todos os campos')
         }

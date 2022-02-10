@@ -13,6 +13,7 @@ async function authenticate(inputs){
     const is_auth = await auth.register(inputs)
     if(is_auth.data.token){
         session.create_session(is_auth.data.token)
+        localStorage.setItem('id', is_auth.data.id)
         router.push('menu.html')
     }else{
         renderError(is_auth.data)
@@ -23,6 +24,7 @@ async function login(inputs){
     const is_login = await auth.login(inputs)
     if(is_login.data.token){
         session.create_session(is_login.data.token)
+        localStorage.setItem('id', is_login.data.id)
         router.push('menu.html')
     }else{
         renderError(is_login.data)

@@ -22,7 +22,7 @@
         </ul>
     </nav>
     <div class="container">
-        <div>
+        <div id="questions_reject">
             <h1>Questões Rejeitadas</h1>
         </div>
         <div class="primeira-coluna">
@@ -30,32 +30,41 @@
             <p style="margin-top: 15px;" class="des">Aqui você deve aceitar ou recusar as questões </p>
             <p class="des">feito pelos alunos para ser apresentado no jogo. </p>
             <div style="text-align: center;" class="text-desc">
-                <h1 class="h1-titulo">Aluno(a): <span>teste</span></h1>
+
+              <div class="inject">
+                  <h1 class="h1-titulo">Aluno(a):</h1>
+            </div>  
+            <div class="inject">
                 <h1 class="h1-titulo">Título:</h1>
-                <span> teste</span>
+            </div>
+
+            <div class="inject">
                 <h1 class="h1-titulo">Resposta 1: </h1>  
-                <span> teste </span>
+            </div>
+            <div class="inject">
                 <h1 class="h1-titulo">Resposta 2: </h1>       
-                <span>teste</span>               
+            </div>
+            <div class="inject">
                 <h1 class="h1-titulo">Resposta 3: </h1>     
-                <span> teste</span>                 
+            </div>
+                           
             </div>
         </div>
-        <div>
+        <div id="approve_questions">
             <h1>Questões Aprovadas</h1>
         </div>
     </div>
     <div class="btn-baixo">
-        <a href="#">
-            <button class="btn-voltar-atividade">Recusar</button>
-        </a>
-        <a href="atividade1.html">
-            <button class="btn-salvar-questao">Voltar</button>
-        </a>
-        <a href="atividade1.html">
-            <button class="btn-salvar-questao">Aceitar</button>
-        </a>
+ 
+            <button class="btn-voltar-atividade" id="refuse">Recusar</button>
+                <a href="">
+                    <button class="btn-salvar-questao" id="back">Voltar</button>
+                </a>
+            <button class="btn-salvar-questao" id="save">Aceitar</button>
+        
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="../public/js/accept_or_refuse.js" type="module"></script>
 </body>
 </html>
