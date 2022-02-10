@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="../public/css/atividade1.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            .alunos-entrar div{
+                display: flex;
+                margin: 15px;
+            }
+            span:hover{
+                cursor: pointer;
+            
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="menu-prof">
+            <ul>
+                <h1 class="h1-logo">Jogo Passa ou Repassa Web</h1>
+                <li>
+                    <a href="">Aluno(a) | Disciplina</a>
+                </li>
+                <a href="index.html">
+                    <button id="sair" class="btn btn-sair-principal">Sair</button>
+                </a>
+            </ul>
+        </nav>
+        <div class="container">
+            <div style="display: flex;">
+                <div class="alunos-entrar">
+                    <h1 style="padding-right: 200px;">Alunos a entrar</h1>
+                    <p>Lucas - Grupo 1</p>
+                    <p>igor - Grupo 1 ou Grupo 2</p>
+                </div>
+                <div class="segunda-coluna">
+                    <div class="grupos">
+                        <div class="grupo1">
+                            <h1>Grupo 01</h1>
+                        </div>
+                        <div class="grupo2">
+                            <h1>Grupo 02</h1>
+                        </div>
+                    </div>
+                    <div class="nomes1">
+                        <ul id='quetions_status'>
+                            lucas
+                        </ul>
+                    </div>
+                    <div class="linha"></div>
+                    <a href="atividade1.html">
+                        <button id="criar-questao" class="btn
+                            btn-criar-questao">Voltar</button>
+                    </a>
+                    <a href="jogo.html">
+                        <button id="começar" class="btn btn-começar">salvar</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            console.log(localStorage.getItem('code'))
+            axios.post('http://localhost:5000/group/code',{code:localStorage.getItem('code')}).then( response => {
+                console.log(response.data)
+                if(response.data){
+                    response.data.forEach(el => {
+                        console.log(el)
+                    if(el.group === 0){
+
+                        var div =   document.createElement('div')
+                        var p = document.createElement('p')
+                        p.innerHTML = el.sttudent
+                        var span = document.createElement('span')
+                        span.innerHTML = 'Grupo 1'
+                        span.addEventListener('click', () => {
+                            axios.post('http://localhost:5000/group/define',{id:el.id, group:1})
+                        })
+                          
+                          var span2 = document.createElement('span')
+                          span2.innerHTML = 'Grupo 2'
+                          span2.addEventListener('click', () => {
+                              axios.post('http://localhost:5000/group/define',{id:el.id, group:2})
+                          })
+                          div.appendChild(p,span,span2)
+                          div.appendChild(span)
+                          div.appendChild(span2)
+                          document.querySelector('.alunos-entrar').appendChild(div)
+                    }
+                        if(el.group === 1){
+                        var add = document.querySelector('.nomes1')
+                        var p = document.createElement('p')
+                        p.innerHTML = el.sttudent
+                        add.appendChild(p)
+                        }   
+                        if(el.group === 2){
+                        var add = document.querySelector('.nomes2')
+                        console.log(add)
+                        var p = document.createElement('p')
+                        p.innerHTML = el.sttudent
+                        add.appendChild(p)
+                        }   
+                    })
+                    
+                }
+
+                
+            })
+        </script>
+    </body>
+</html>

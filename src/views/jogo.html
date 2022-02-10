@@ -28,13 +28,13 @@
                     <div class="acertos-1">
                         <h1 class="titulo-acerto">Acertos</h1>
                         <div class="box-4">
-                            <span id="num-acertos" class="num-acertos">273</span>
+                            <span id="num-acertos" class="num-acertos">0</span>
                         </div>
                     </div>
                     <div class="erros-1">
                         <h1 class="titulo-erros">Erros </h1>
                         <div class="box-4">
-                            <span id="num-acertos" class="num-erros">73</span>
+                            <span id="num-acertos" class="num-erros">0</span>
                         </div>
                     </div>
                 </div>
@@ -44,13 +44,13 @@
                         <div class="acertos-2">
                             <h1 class="titulo-acerto">Acertos</h1>
                             <div class="box-4">
-                                <span id="num-acertos" class="num-acertos">73</span>
+                                <span id="num-acertos" class="num-acertos">0</span>
                             </div>
                         </div>
                         <div class="erros-2">
                             <h1 class="titulo-erros">Erros </h1>
                             <div class="box-4">
-                                <span id="num-acertos" class="num-erros">73</span>
+                                <span id="num-acertos" class="num-erros">0</span>
                             </div>
                         </div>
                     </div>
@@ -60,31 +60,31 @@
                 <h1 style="text-align: center; margin-bottom: 20px;">Grupo a jogar: <span> Grupo 1 </span></h1>
                 <div class="segunda-coluna-h">
                     <div class="nome-aluno">
-                        <h1 style="text-align: center; margin-top: 10px;"><span>teste nome</span></h1>
+                        <h1 style="text-align: center; margin-top: 10px;"><span id="student_nome">teste nome</span></h1>
                     </div>
                     <div class="cronometro">
-                        <h1 style="text-align: center; margin-top: 10px;"><span>15 sec</span></h1>
+                        <h1 style="text-align: center; margin-top: 10px;"><span><span id="time"></span> sec</span></h1>
                     </div>
                     <div class="assunto">
-                        <h1 style="text-align: center; margin-top: 10px;"><span>teste assunto</span></h1>
+                        <h1 style="text-align: center; margin-top: 10px;"><span class="subject">teste assunto</span></h1>
                     </div>
                 </div>
                 <h1 style="text-align: center; margin-top: 7px;" class="titulo-resposta">Título</h1>
                 <div class="terceira-coluna">
                     <div class="titulo-questao">
-                        <h1 style="text-align: start; margin-top: 10px; margin-left: 20px;"><span>teste título</span></h1>
+                        <h1 style="text-align: start; margin-top: 10px; margin-left: 20px;"><span id='title'></span></h1>
                     </div>
                 </div>
                 <h1 style="text-align: center; margin-bottom: -10px;" class="titulo-resposta">Respostas</h1>
                 <div class="quarta-coluna">
                     <div class="respostas">
-                        <h1 style="text-align: center; margin-top: 10px;"><span>teste resposta - 1</span></h1>
+                        <h1 style="text-align: center; margin-top: 10px;"><span id="resposta1"></span></h1>
                     </div>
                     <div class="respostas">
-                        <h1 style="text-align: center; margin-top: 10px;"><span>teste resposta - 2</span></h1>
+                        <h1 style="text-align: center; margin-top: 10px;"><span  id="resposta2"></span></h1>
                     </div>
                     <div class="respostas">
-                        <h1 style="text-align: center; margin-top: 10px;"><span>teste resposta - 3</span></h1>
+                        <h1 style="text-align: center; margin-top: 10px;"><span  id="resposta3"></span></h1>
                     </div>
                 </div>
                 <div class="ajuda-passar">
@@ -98,5 +98,64 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+const data = JSON.parse(localStorage.getItem('full_data'))
+
+axios.get(`http://localhost:5000/activity/getcode/${data.code}`).then(response => {
+
+    document.querySelector('.subject').innerHTML = response.data.subject.replace(/\'/g,'')
+    axios.get(`http://localhost:5000/questions/getall/${12}`).then( response => {
+      var els_arr = []
+
+        if(response.data){
+            response.data.forEach( (el, i) => {
+                 els_arr.push(render_questions(el))
+            });
+            render2(els_arr[0])
+        }   
+
+    })
+})
+    document.querySelector('#student_nome').innerHTML = data.sttudent
+
+    function render_questions({question, answer_1, answer_2, answer_3}){
+       
+        var title = document.createElement('p')
+        var resp_1 = document.createElement('p')
+        var resp_2 = document.createElement('p')
+        var resp_3 = document.createElement('p')
+
+        console.log(answer_1)
+        
+        title.innerHTML = question
+        
+        resp_1.innerHTML = answer_1
+        resp_2.innerHTML = answer_2
+        resp_3.innerHTML = answer_3
+
+        return [title, resp_1, resp_2, resp_3]        
+    }
+
+    function render2(){
+        console.log(arguments[0][0])
+        document.querySelector('#title').appendChild(arguments[0][0])
+        document.querySelector('#resposta1').appendChild(arguments[0][1])
+        document.querySelector('#resposta2').appendChild(arguments[0][2])
+        document.querySelector('#resposta3').appendChild(arguments[0][3])
+    }
+
+
+    var tempo = 15;
+    var my_interval = setInterval(() =>{
+        document.querySelector("#time").innerHTML = tempo
+        --tempo
+        if(tempo === 0){
+            clearInterval(my_interval)
+        }
+    },1000)
+
+</script>
 </body>
 </html>
