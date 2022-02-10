@@ -151,7 +151,7 @@ axios.get(`http://localhost:5000/activity/getcode/${data.code}`).then(response =
     var my_interval = setInterval(() =>{
         document.querySelector("#time").innerHTML = tempo
         --tempo
-        if(tempo === 0){
+        if(tempo === -1){
             clearInterval(my_interval)
         }
     },1000)
