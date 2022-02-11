@@ -39,8 +39,7 @@ async function login_code(inputs) {
       code: localStorage.getItem("code"),
     });
     localStorage.setItem("full_data", JSON.stringify(resposta.data));
-    console.log(resposta);
-    //router.push("criarQuestao.html");
+    router.push("criarQuestao.html");
   } else {
     renderError("Atividade nao encontrada");
   }

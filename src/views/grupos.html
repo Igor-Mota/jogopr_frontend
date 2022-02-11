@@ -47,11 +47,16 @@
                         </div>
                     </div>
                     <div class="nomes1">
-                        <ul id='quetions_status'>
+                        <ul id='quetions_status' id="nomes1">
                             lucas
                         </ul>
                     </div>
                     <div class="linha"></div>
+                    <div class="nomes2" id="nomes2">
+                        <ul id='quetions_status'>
+
+                        </ul>
+                    </div>
                     <a href="atividade1.html">
                         <button id="criar-questao" class="btn
                             btn-criar-questao">Voltar</button>
@@ -92,13 +97,14 @@
                           document.querySelector('.alunos-entrar').appendChild(div)
                     }
                         if(el.group === 1){
-                        var add = document.querySelector('.nomes1')
+                        var add = document.getElementById('#nomes1')
+                        
                         var p = document.createElement('p')
                         p.innerHTML = el.sttudent
                         add.appendChild(p)
                         }   
                         if(el.group === 2){
-                        var add = document.querySelector('.nomes2')
+                        var add = document.getElementById('nomes2')
                         console.log(add)
                         var p = document.createElement('p')
                         p.innerHTML = el.sttudent

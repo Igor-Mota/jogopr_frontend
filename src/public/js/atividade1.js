@@ -5,6 +5,7 @@ import render_question from "../scripts/render/render_question.js";
     const activitye = await axios.get(`http://localhost:5000/activity/get`, {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     });
+    console.log(activitye);
     if (activitye.data) {
       if (activitye.data.length > 0) {
         activitye.data.map((el) => {
@@ -20,7 +21,6 @@ import render_question from "../scripts/render/render_question.js";
       )}`,
       { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }
     );
-
     render_question(response.data);
   }
   get_activity();
