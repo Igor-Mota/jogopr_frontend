@@ -112,9 +112,6 @@ async function main(){
     const response = await api.post(`/group/code`,{code:data.code})
     const questions = await api.get(`/questions/getall/${data.activity_id}`)
 
-    // console.log('groups: ', response.data)
-    // console.log('questions: ', questions.data)
-
    var questions_separete =   define_questions_in_groups(questions, response)
     const elements = get_elements_in_dom()
     start_game(1, elements, questions_separete, index)
@@ -168,18 +165,14 @@ function start_question(obj, questions, index=0,  group=localStorage.getItem('gr
     if(localStorage.getItem('group') === 'group_1'){
         render_static(group_game, 'Grupo 2')
     }
-    console.log(obj)
-
-    console.log(obj)
-    var i = index
+     i = index
     const {title, cronometro, resp, resp1, resp2, resp3, pass} = obj;
     const {question, answer_1, answer_2, answer_3,correct} = questions[group][i]
-    console.log(correct)
-    render_static(title, question)
+     render_static(title, question)
     render_static(resp1, answer_1)
     render_static(resp2, answer_2)
     render_static(resp3, answer_3)
-    console.log(questions[group])
+
     resp1.addEventListener('click', (e) => {set_response(e, resp1, resp2, resp3)})
     resp2.addEventListener('click', (e) => {set_response(e, resp1, resp2, resp3)})
     resp3.addEventListener('click', (e) => {set_response(e, resp1, resp2, resp3)})
@@ -240,7 +233,7 @@ function start_question(obj, questions, index=0,  group=localStorage.getItem('gr
             start_question(obj, questions, 0)
         }
     })
-    console.log(obj.error_1)
+    
     var time = 15
     var myInterval = setInterval(() => {
         render_static(cronometro, time)
